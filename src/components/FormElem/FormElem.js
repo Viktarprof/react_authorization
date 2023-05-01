@@ -33,12 +33,12 @@ function FormElem(props){
         required: 'Пароль должен быть заполнен',
         pattern: {
             value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/,
-            message: 'Пароль должен содержать минимум 8 букв и хотябы 1 цифру'
+            message: 'Пароль должен содержать 8 букв и 1 цифру'
         }
     })
 
     const secondPasswordElem = (type === 'reg') ?
-     register('secondPassword', {
+    register('secondPassword', {
         required: 'Пароль должен быть заполнен',
         validate: (value) => value === password.current || 'Пароли не соответсвуют друг другу'
     }) : ''
@@ -57,12 +57,6 @@ function FormElem(props){
                 <Input {...emailElem}/>
                 <div>
                     {errors.email && <p className={styles.warning_text}>{errors.email.message}</p>}
-                </div> 
-
-                <p>{input.password}</p>
-                <Input {...passwordElem}/>
-                <div>
-                    {errors.password && <p className={styles.warning_text}>{errors.password.message}</p>}
                 </div> 
 
                 {(type !== 'reset') && 
@@ -87,8 +81,8 @@ function FormElem(props){
 
 
                 <p className={styles.info_text}>{infoText}</p>
-                
-                {(type === 'login' ) && 
+
+                {(type === 'login') && 
                     <Link to='/reset'>
                         <p className={styles.info_text}>Восстановить доступ</p>
                     </Link>

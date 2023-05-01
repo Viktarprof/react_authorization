@@ -1,4 +1,5 @@
 import FormElem from '../FormElem/FormElem'
+import Button from '../UI/Button/Button'
 import styles from './Modal.module.css'
 import {Routes, Route} from 'react-router-dom'
 
@@ -34,9 +35,10 @@ function Modal(props){
                             button={{redirect: 'Регистрация', submit: 'Авторизоваться'}}
                             infoText={'Введите логин и пароль вашего аккаунта'}
                             type={'login'}
+
                         />
                     }/>
-                     <Route path='/reset' element={
+                    <Route path='/reset' element={
                         <FormElem
                             title={'Сбросить пароль'}
                             link={'/login'}
